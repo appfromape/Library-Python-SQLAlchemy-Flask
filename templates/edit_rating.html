@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改評分</title>
+</head>
+<body>
+    <form action="{{ url_for('edit') }}" method="POST">
+        <p>書名: {{ book["title"] }}</p>
+        <p>目前評分 {{ book.rating }}</p>
+        <input hidden="hidden" name="id" value="{{ book.id }}">
+        <input name="rating" type="text" placeholder="新評分">
+        <button type="submit">更改評分</button>
+    </form>
+</body>
+</html>

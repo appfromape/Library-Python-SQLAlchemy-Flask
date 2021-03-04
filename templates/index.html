@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>圖書館</title>
+</head>
+
+<body>
+    <h1>我的圖書館</h1>
+    {% if books == [] %}
+    <ul>
+        <li>你沒有書在裡面</li>
+    </ul>
+    {% else %}
+    {% for book in books %}
+    <ul>
+        <a href="{{ url_for('delete', id=book.id) }}">刪除</a>
+        <li>{{ book["title"] }}-{{ book["author"] }}-{{ book["rating"] }}/10</li>
+        <a href="{{ url_for('edit', id=book.id) }}">修改評分</a>
+    </ul>
+    {% endfor %}
+    {% endif %}
+
+    <a href="{{ url_for('add') }}">加新書</a>
+</body>
+
+</html>
